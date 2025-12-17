@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     name     : in-cluster
-    namespace: app1
+    namespace: app2
   source:
     path   : "HelmCharts/MyChart2"
     repoURL: "git@github.com:Den4ug/argocd1.git"
@@ -18,7 +18,8 @@ spec:
       - values_dev.yaml
       parameters:
       - name: "container.image"
-        value: alpine/ansible
+        value: den4ug13/vasek
+
 
 
   project: default
