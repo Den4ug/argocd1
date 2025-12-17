@@ -1,31 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name     : myapp5
+  name: myapp5
   namespace: argocd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  destination:
-    name     : in-cluster
-    namespace: app2
+  project: default
   source:
-    path   : "HelmCharts/MyChart2"
     repoURL: "git@github.com:Den4ug/argocd1.git"
     targetRevision: HEAD
+    path: "HelmCharts/MyChart2"
     helm:
       valueFiles:
-      - values_dev.yaml
-      parameters:
-      - name: "container.image"
-        value: "nginx:latest"
-
-
-
-  project: default
+        - values_dev.yaml   # Dev override
+  destination:
+    name: in-cluster
+    namespace: app2
   syncPolicy:
     automated:
-      prune   : true
+      prune: true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true   
+      - CreateNamespace=true
+
