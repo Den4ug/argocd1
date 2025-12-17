@@ -1,7 +1,7 @@
 # Dev Override Values for my Helm Chart
 
 container:
-  image: windvenx/property-management
+  image: nginx:latest
   
 replicaCount: 4
 

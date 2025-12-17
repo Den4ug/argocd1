@@ -18,7 +18,7 @@ spec:
       - values_dev.yaml
       parameters:
       - name: "container.image"
-        value: windvenx/property-management
+        value: "nginx:latest"
 
   project: default
   syncPolicy:
