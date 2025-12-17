@@ -18,8 +18,7 @@ spec:
       - values_dev.yaml
       parameters:
       - name: "container.image"
-        value: den4ug13/property
-
+        value: nginx:latest
 
 
 
