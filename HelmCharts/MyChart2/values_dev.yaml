@@ -1,7 +1,20 @@
 # Dev Override Values for my Helm Chart
+replicaCount: 4
 
 container:
-  image: tomcat:8.5.38
-  
-replicaCount: 4
+  image: nginx:latest
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "256Mi"
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
 
